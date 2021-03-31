@@ -20,9 +20,9 @@ headerTemplate.innerHTML = `
     <style>
     
     #logo{
-         object-fit: contain;
-         margin: 0 auto;
          max-height: 100%;
+         margin: 5px;
+
     }
     #header-leftColumn{
         justify-content: flex-end;
@@ -32,20 +32,22 @@ headerTemplate.innerHTML = `
     }
     #header-logoColumn{
         place-items: center;
+
     }
     #header-nav {
         height: 70px;
         display: grid;
         grid-column-gap: 10px;
-        grid-template-columns: 40% 20% 40%;
+        grid-template-columns: 2fr auto 2fr;
         background-color:  #0a0a23;
         align-items: center;
-        grid-template-rows:70px;
+        grid-template-rows:100%;
     }
     .header-column{
         place-items: center;
-        height: 100%;
+        height: 100% ;
         display: inline-flex;
+        overflow: hidden;
         
     }
     ul li {
@@ -57,8 +59,7 @@ headerTemplate.innerHTML = `
         font-weight: 700;
         margin: 0 25px;
         color: #fff;
-        text-decoration: none;
-        
+        text-decoration: none;       
     }
 
     a:hover {
@@ -73,7 +74,6 @@ class Header extends HTMLElement {
     constructor() {
         super();
     }
-
 
     connectedCallback() {
         const shadowRoot = this.attachShadow({mode: 'closed'});

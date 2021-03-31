@@ -1,28 +1,53 @@
 const headerTemplate = document.createElement('template');
 headerTemplate.innerHTML = `
     <header>
-        <nav> 
-            <div>
-                <span><a href=../Startseite.html>Startseite</a></span>
-                <span><a href=../Ueber.html>Über</a></span>
-                <span><a href=../Lebenslauf.html>Lebenslauf</a></span>
-                <span><a href=../Projekte.html>Projekte</a></span>
-                <span><a href=../Kontakt.html>Kontakt</a></span>
+        <nav id="header-nav"> 
+            <div class="header-column" id="header-leftColumn">
+                <span><a href=Startseite.html>Startseite</a></span>
+                <span><a href=Ueber.html>Über</a></span>
+                <span><a href=Lebenslauf.html>Lebenslauf</a></span>
+            </div>     
+            <div class="header-column" id="header-logoColumn">
+                <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo%21_Logo.svg" alt="Logo" >   
+            </div>   
+            <div class="header-column" id="header-rightColumn"> 
+                <span><a href=Projekte.html>Projekte</a></span>
+                <span><a href=Kontakt.html>Kontakt</a></span>
             </div>
         </nav>
     </header>
 
     <style>
     
-
-    nav {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color:  #0a0a23;
+    #logo{
+         object-fit: contain;
+         margin: 0 auto;
+         max-height: 100%;
     }
-
+    #header-leftColumn{
+        justify-content: flex-end;
+    }
+    #header-rightColumn{
+        justify-content: flex-start;
+    }
+    #header-logoColumn{
+        place-items: center;
+    }
+    #header-nav {
+        height: 70px;
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: 40% 20% 40%;
+        background-color:  #0a0a23;
+        align-items: center;
+        grid-template-rows:70px;
+    }
+    .header-column{
+        place-items: center;
+        height: 100%;
+        display: inline-flex;
+        
+    }
     ul li {
         list-style: none;
         display: inline;
@@ -33,6 +58,7 @@ headerTemplate.innerHTML = `
         margin: 0 25px;
         color: #fff;
         text-decoration: none;
+        
     }
 
     a:hover {
